@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var countryList : String[] = ["USA", "CHINA", "ENGLAND", "INDIA", "CANADA"]
+    let cellReuseIdentifier : String = "cell"
+    
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
     }
@@ -25,7 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
+        tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: self.cellReuseIdentifier)
         view.addSubview(tableView)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -40,12 +42,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cellReuseIdentifier : NSString = "cell"
         
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
+        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: self.cellReuseIdentifier)
         }
         
         cell.text = "Row: \(countryList[indexPath.row])"
