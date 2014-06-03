@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var countryList : String[] = ["USA", "CHINA", "ENGLAND", "INDIA", "CANADA"]
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
     }
@@ -35,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.countryList.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
@@ -47,7 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
         }
         
-        cell.text = "Row: \(indexPath.row)"
+        cell.text = "Row: \(countryList[indexPath.row])"
         
         return cell
     }
