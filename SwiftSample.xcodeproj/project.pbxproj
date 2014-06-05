@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F55B4E0F1940B41400C4AA53 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B4E0E1940B41400C4AA53 /* Item.swift */; };
+		F55B4E111940C64E00C4AA53 /* CloudServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B4E101940C64E00C4AA53 /* CloudServiceManager.swift */; };
 		F5A74330193E467B008F228C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7432F193E467B008F228C /* AppDelegate.swift */; };
 		F5A74332193E467B008F228C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A74331193E467B008F228C /* ViewController.swift */; };
 		F5A74335193E467B008F228C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A74333193E467B008F228C /* Main.storyboard */; };
 		F5A74337193E467B008F228C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A74336193E467B008F228C /* Images.xcassets */; };
 		F5A74343193E467B008F228C /* SwiftSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A74342193E467B008F228C /* SwiftSampleTests.swift */; };
+		F5A7434E193F7CEC008F228C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A7434D193F7CEC008F228C /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F55B4E0E1940B41400C4AA53 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F55B4E101940C64E00C4AA53 /* CloudServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudServiceManager.swift; sourceTree = "<group>"; };
 		F5A7432A193E467B008F228C /* SwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A7432E193E467B008F228C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5A7432F193E467B008F228C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,8 @@
 		F5A7433C193E467B008F228C /* SwiftSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A74341193E467B008F228C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5A74342193E467B008F228C /* SwiftSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSampleTests.swift; sourceTree = "<group>"; };
+		F5A7434C193F7CE1008F228C /* SwiftSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwiftSample.entitlements; sourceTree = "<group>"; };
+		F5A7434D193F7CEC008F228C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A7434E193F7CEC008F228C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +65,7 @@
 		F5A74321193E467B008F228C = {
 			isa = PBXGroup;
 			children = (
+				F5A7434D193F7CEC008F228C /* CloudKit.framework */,
 				F5A7432C193E467B008F228C /* SwiftSample */,
 				F5A7433F193E467B008F228C /* SwiftSampleTests */,
 				F5A7432B193E467B008F228C /* Products */,
@@ -75,11 +84,14 @@
 		F5A7432C193E467B008F228C /* SwiftSample */ = {
 			isa = PBXGroup;
 			children = (
+				F5A7434C193F7CE1008F228C /* SwiftSample.entitlements */,
 				F5A7432F193E467B008F228C /* AppDelegate.swift */,
 				F5A74331193E467B008F228C /* ViewController.swift */,
+				F55B4E0E1940B41400C4AA53 /* Item.swift */,
 				F5A74333193E467B008F228C /* Main.storyboard */,
 				F5A74336193E467B008F228C /* Images.xcassets */,
 				F5A7432D193E467B008F228C /* Supporting Files */,
+				F55B4E101940C64E00C4AA53 /* CloudServiceManager.swift */,
 			);
 			path = SwiftSample;
 			sourceTree = "<group>";
@@ -158,6 +170,12 @@
 				TargetAttributes = {
 					F5A74329193E467B008F228C = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 8GAQFV89E9;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					F5A7433B193E467B008F228C = {
 						CreatedOnToolsVersion = 6.0;
@@ -209,7 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5A74332193E467B008F228C /* ViewController.swift in Sources */,
+				F55B4E0F1940B41400C4AA53 /* Item.swift in Sources */,
 				F5A74330193E467B008F228C /* AppDelegate.swift in Sources */,
+				F55B4E111940C64E00C4AA53 /* CloudServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,9 +347,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SwiftSample/SwiftSample.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -338,9 +362,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SwiftSample/SwiftSample.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -399,6 +427,7 @@
 				F5A74348193E467B008F228C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5A74349193E467B008F228C /* Build configuration list for PBXNativeTarget "SwiftSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +436,7 @@
 				F5A7434B193E467B008F228C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
