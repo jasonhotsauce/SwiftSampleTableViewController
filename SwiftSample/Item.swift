@@ -12,16 +12,18 @@ class Item {
     var name: String!
     var startDate: NSDate!
     
-    var endDate: NSDate? {
-    get{
+    var endDate: NSDate?
+    
+    var finished: Bool {
+    get{ return self.finished }
+    set(isFinished) {
+        self.finished = isFinished
         if finished {
-            return NSDate.date()
+            endDate = NSDate.date()
         }
-        return nil
-    }
     }
     
-    var finished: Bool
+    }
     var description: NSString?
     
     init(name:String!, startDate:NSDate!, finished:Bool, description:String?) {

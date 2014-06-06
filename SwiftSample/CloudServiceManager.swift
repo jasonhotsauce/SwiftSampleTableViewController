@@ -9,20 +9,35 @@
 import Foundation
 import CloudKit
 
+enum CloudServiceManagerError: Int {
+    case Unknown
+    case NoAccount
+    case Restricted
+}
+
+@class_protocol protocol CloudServiceManagerDelegate {
+    func cloudServiceManagerDidFinishSetup()
+    func cloudServiceManagerDidFinishSetupWithError(error: CloudServiceManagerError)
+}
+
 class CloudServiceManager {
     
     var container: CKContainer? = nil
     var publicDatabase: CKDatabase? = nil
     var privateDatabase: CKDatabase? = nil
+    
+    weak var delegate: CloudServiceManagerDelegate?
+    
+    struct SingleInstance {
+        static let sharedInstance: CloudServiceManager = {
+            let instance: CloudServiceManager = CloudServiceManager()
+            return instance
+        }()
+    }
+    
     class var sharedInstance: CloudServiceManager {
         get {
-            struct StaticVar {
-                static var instance: CloudServiceManager? = nil
-                static var token: dispatch_once_t = 0
-            }
-            
-            dispatch_once(&StaticVar.token, {StaticVar.instance = CloudServiceManager()})
-            return StaticVar.instance!
+            return SingleInstance.sharedInstance
         }
     }
     
@@ -37,15 +52,16 @@ class CloudServiceManager {
             switch status {
             case .Available:
                 self.privateDatabase = self.container?.privateCloudDatabase
+                self.delegate?.cloudServiceManagerDidFinishSetup()
                 
             case .NoAccount:
-                println("NO ACCOUNT")
+                self.delegate?.cloudServiceManagerDidFinishSetupWithError(CloudServiceManagerError.NoAccount)
                 
             case .Restricted:
-                println("RESTRICTED")
+                self.delegate?.cloudServiceManagerDidFinishSetupWithError(CloudServiceManagerError.Restricted)
                 
             default:
-                println("UNKNOWN")
+                self.delegate?.cloudServiceManagerDidFinishSetupWithError(CloudServiceManagerError.Unknown)
             }
             })
     }
