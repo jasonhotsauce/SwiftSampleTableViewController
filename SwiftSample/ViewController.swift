@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CloudKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var addButton : UIBarButtonItem
     var countryList : String[] = ["USA", "CHINA", "ENGLAND", "INDIA", "CANADA"]
     let cellReuseIdentifier : String = "cell"
     
@@ -31,7 +33,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tableView)
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated);
+        
+        
+    }
 
+    @IBAction func addButtonTapped(sender:AnyObject) {
+        if CloudServiceManager.sharedInstance.publicDatabase {
+            self.performSegueWithIdentifier("presentAddItemView", sender: self)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

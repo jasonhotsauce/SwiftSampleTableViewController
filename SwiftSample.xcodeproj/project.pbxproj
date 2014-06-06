@@ -15,6 +15,7 @@
 		F5A74337193E467B008F228C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A74336193E467B008F228C /* Images.xcassets */; };
 		F5A74343193E467B008F228C /* SwiftSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A74342193E467B008F228C /* SwiftSampleTests.swift */; };
 		F5A7434E193F7CEC008F228C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A7434D193F7CEC008F228C /* CloudKit.framework */; };
+		F5ABC98119419F7D00DC123E /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABC98019419F7D00DC123E /* AddItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		F5A74342193E467B008F228C /* SwiftSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSampleTests.swift; sourceTree = "<group>"; };
 		F5A7434C193F7CE1008F228C /* SwiftSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwiftSample.entitlements; sourceTree = "<group>"; };
 		F5A7434D193F7CEC008F228C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F5ABC98019419F7D00DC123E /* AddItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				F5A7434C193F7CE1008F228C /* SwiftSample.entitlements */,
 				F5A7432F193E467B008F228C /* AppDelegate.swift */,
 				F5A74331193E467B008F228C /* ViewController.swift */,
+				F5ABC98019419F7D00DC123E /* AddItemTableViewController.swift */,
 				F55B4E0E1940B41400C4AA53 /* Item.swift */,
 				F5A74333193E467B008F228C /* Main.storyboard */,
 				F5A74336193E467B008F228C /* Images.xcassets */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5A74332193E467B008F228C /* ViewController.swift in Sources */,
+				F5ABC98119419F7D00DC123E /* AddItemTableViewController.swift in Sources */,
 				F55B4E0F1940B41400C4AA53 /* Item.swift in Sources */,
 				F5A74330193E467B008F228C /* AppDelegate.swift in Sources */,
 				F55B4E111940C64E00C4AA53 /* CloudServiceManager.swift in Sources */,
